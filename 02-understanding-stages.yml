@@ -16,29 +16,37 @@ stages:
     steps:
     - bash: echo Build First Job
     - bash: echo $(PIPELINELEVELVARIABLE)
+    - bash: echo $(Build.BuildNumber)
+    - bash: echo $(Build.BuildId)
+    - bash: echo $(Build.SourceBranchName)
+    - bash: echo $(Build.SourcesDirectory)
+    - bash: echo $(System.DefaultWorkingDirectory)
+    - bash: ls -R $(System.DefaultWorkingDirectory)
+    - bash: echo $(Build.ArtifactStagingDirectory)
+
   - job: SecondJob
     steps:
     - bash: echo Build Second Job
 
-- stage: DevDeploy
-  variables:
-    environment: Dev
-  jobs:
-  - job: DevJob
-    steps:
-    - bash: echo $(environment) deploy
+# - stage: DevDeploy
+#   variables:
+#     environment: Dev
+#   jobs:
+#   - job: DevJob
+#     steps:
+#     - bash: echo $(environment) deploy
 
-- stage: QADeploy
-  jobs:
-  - job: QAfirst
-    steps:
-    - bash: echo First QA
-  - job: QAsecond
-    steps:
-    - bash: echo Second QA
+# - stage: QADeploy
+#   jobs:
+#   - job: QAfirst
+#     steps:
+#     - bash: echo First QA
+#   - job: QAsecond
+#     steps:
+#     - bash: echo Second QA
 
-- stage: ProdDeploy
-  jobs:
-  - job: Prod
-    steps:
-    - bash: echo Prod deploy
+# - stage: ProdDeploy
+#   jobs:
+#   - job: Prod
+#     steps:
+#     - bash: echo Prod deploy
