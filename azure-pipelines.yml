@@ -24,7 +24,7 @@ stages:
       displayName: Build an image
       inputs:
         containerRegistry: 'manhnguyenn docker hub'
-        repository: 'first-repo'
+        repository: 'manhnguyenn/first-repo'
         command: 'buildAndPush'
         Dockerfile: '**/Dockerfile'
         tags: '$(tag)'
