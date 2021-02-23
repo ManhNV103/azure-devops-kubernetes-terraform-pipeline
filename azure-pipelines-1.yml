@@ -10,6 +10,6 @@ pool:
   vmImage: ubuntu-latest
 
 steps:
-- script: ping google.com
+- script: echo ping google.com
   displayName: 'ping alex'
 
